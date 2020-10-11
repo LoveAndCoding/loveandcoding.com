@@ -132,7 +132,7 @@ function getStylesheets(builds, selected) {
 		.map(
 			(bld) =>
 				`<link href="/css/${bld.stylesheet}" rel="${
-					bld === selected ? "stylesheet" : "alternative stylesheet"
+					bld === selected ? "stylesheet" : "alternate stylesheet"
 				}" title="${bld.label}" />`
 		)
 		.join(`\n${HEADER_TABS}`);
