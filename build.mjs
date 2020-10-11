@@ -1,6 +1,10 @@
-import { existsSync, promises as fs } from "fs";
+import { existsSync, promises as fs, watch } from "fs";
+import { createServer } from "http";
 import { basename, dirname, join, resolve } from "path";
 import { fileURLToPath } from "url";
+
+import finalHandler from "finalhandler";
+import serveStatic from "serve-static";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -216,6 +220,38 @@ async function rebuild() {
 		join(BUILD_STYLE_DIR, basename(SHARED_CSS_FILE)),
 		sharedCSS
 	);
+
+	console.log("Rebuild complete");
 }
 
-rebuild();
+function setupServer() {
+	const serve = serveStatic(BUILD_DIR, { redirect: false });
+	const server = createServer((req, res) => {
+		serve(req, res, finalHandler(req, res));
+	});
+
+	server.listen(9001);
+	console.log("Server started at localhost:9001");
+}
+
+function setupWatcher() {
+	let rebuilding = false;
+	watch(__dirname, async () => {
+		if (rebuilding) {
+			return;
+		}
+
+		rebuilding = true;
+		await rebuild();
+		rebuilding = false;
+	});
+}
+
+await rebuild();
+if (
+	process.argv.length > 2 &&
+	(process.argv.includes("--serve", 2) || process.argv.includes("-s", 2))
+) {
+	setupServer();
+	setupWatcher();
+}
