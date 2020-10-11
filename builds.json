@@ -1,0 +1,62 @@
+{
+	"defaults": {
+		"images": [],
+		"js": ["switcher.js"],
+		"selfPotrait": "alexis.bwr.svg",
+		"themeColor": "#560e1b"
+	},
+	"styles": [
+		{
+			"icon": "Cartoon.svg",
+			"label": "Artistry",
+			"slug": "art",
+			"stylesheet": "cartoon.css"
+		},
+		{
+			"icon": "Emoji.svg",
+			"label": "Emotion",
+			"slug": "emotion",
+			"stylesheet": "emoji.css"
+		},
+		{
+			"js": ["switcher.js", "game.js"],
+			"icon": "Pixel.svg",
+			"label": "Games",
+			"slug": "games",
+			"stylesheet": "game.css"
+		},
+		{
+			"images": ["minimal.full.heart.svg"],
+			"icon": "Modern.svg",
+			"label": "Minimalism",
+			"root": true,
+			"slug": "minimalism",
+			"stylesheet": "minimal.css"
+		},
+		{
+			"icon": "Shade.svg",
+			"label": "Pastels",
+			"slug": "pastels",
+			"stylesheet": "pastel.css"
+		},
+		{
+			"icon": "Vector.svg",
+			"label": "Pop",
+			"slug": "pop",
+			"stylesheet": "popart.css"
+		},
+		{
+			"icon": "Line.svg",
+			"label": "Precision",
+			"slug": "precision",
+			"stylesheet": "lines.css"
+		},
+		{
+			"js": [],
+			"icon": "Text.svg",
+			"label": "Simplicity",
+			"slug": "text",
+			"stylesheet": "text.css"
+		}
+	]
+}

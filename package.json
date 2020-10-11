@@ -1,0 +1,17 @@
+{
+	"name": "loveandcoding.com",
+	"version": "1.0.0",
+	"description": "Personal site for Alexis Hushbeck",
+	"main": "index.html",
+	"repository": "git@github.com:LoveAndCoding/loveandcoding.com.git",
+	"author": "Alexis Hushbeck <github@imgineme.com>",
+	"license": "CC-BY-NC-4.0",
+	"private": true,
+	"scripts": {
+		"build": "node ./build.mjs"
+	},
+	"devDependencies": {},
+	"dependencies": {
+		"typeface-raleway": "^0.0.75"
+	}
+}
