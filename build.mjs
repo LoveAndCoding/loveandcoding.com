@@ -11,6 +11,7 @@ const __dirname = dirname(__filename);
 
 // Constants
 //   - Directories
+const NPM_DIR = join(__dirname, "node_modules");
 const STYLE_DIR = join(__dirname, "css");
 const JS_DIR = join(__dirname, "js");
 const IMAGE_DIR = join(__dirname, "images");
@@ -20,6 +21,7 @@ const BUILD_IMG_DIR = join(BUILD_DIR, "images");
 const BUILD_IMG_HEARTS_DIR = join(BUILD_IMG_DIR, "hearts");
 const BUILD_STYLE_DIR = join(BUILD_DIR, "css");
 const BUILD_JS_DIR = join(BUILD_DIR, "js");
+const BUILD_FONT_DIR = join(BUILD_DIR, "fonts");
 //   - Files
 const BUILD_CONFIG_FILE = join(__dirname, "builds.json");
 const TEMPLATE_FILE = join(__dirname, "template.html");
@@ -62,6 +64,26 @@ async function copyDependencies(build) {
 			join(BUILD_IMG_DIR, build.selfPotrait)
 		);
 	}
+
+	if (build.npmFonts && build.npmFonts.length) {
+		for (let f = 0; f < build.npmFonts.length; f++) {
+			const font = build.npmFonts[f];
+			const folderPath = resolve(NPM_DIR, font.package);
+			const files = font.styles.map((stl) => `${font.filePrefix}${stl}`);
+
+			for (let s = 0; s < files.length; s++) {
+				for (let e = 0; e < font.extensions.length; e++) {
+					const file = `${files[s]}.${font.extensions[e]}`;
+					const srcpath = resolve(folderPath, file);
+					const destpath = resolve(BUILD_FONT_DIR, basename(file));
+
+					if (existsSync(srcpath) && !existsSync(destpath)) {
+						await fs.copyFile(srcpath, destpath);
+					}
+				}
+			}
+		}
+}
 }
 
 async function ensureFoldersExist(builds) {
@@ -72,6 +94,7 @@ async function ensureFoldersExist(builds) {
 	await fs.mkdir(BUILD_IMG_HEARTS_DIR, { recursive: true });
 	await fs.mkdir(BUILD_STYLE_DIR, { recursive: true });
 	await fs.mkdir(BUILD_JS_DIR, { recursive: true });
+	await fs.mkdir(BUILD_FONT_DIR, { recursive: true });
 
 	// Make a folder for each build file that will need it
 	for (let b = 0; b < builds.length; b++) {
