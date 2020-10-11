@@ -48,7 +48,7 @@ function setupSwitcher() {
 
 	btns.forEach((btn) => {
 		btn.addEventListener("click", toggleSwitcher);
-		btn.classList.remove("love-bar_button__open");
+		btn.classList.remove("love-bar_button__hidden");
 		btn.setAttribute("aria-expanded", false);
 		btn.setAttribute("aria-controls", "love-bar");
 	});

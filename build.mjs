@@ -46,8 +46,8 @@ async function copyDependencies(build) {
 			const dest = join(BUILD_JS_DIR, build.js[j]);
 			if (existsSync(src) && !existsSync(dest)) {
 				await fs.copyFile(src, dest);
+			}
 		}
-	}
 	}
 
 	if (build.images && build.images.length) {
@@ -85,7 +85,7 @@ async function copyDependencies(build) {
 				}
 			}
 		}
-}
+	}
 }
 
 async function ensureFoldersExist(builds) {
@@ -113,7 +113,7 @@ function getUrl(build) {
 	if (build.root) {
 		return "";
 	}
-	return `${build.slug}.html`;
+	return `${build.slug}/`;
 }
 
 function getIconCSS(builds) {
