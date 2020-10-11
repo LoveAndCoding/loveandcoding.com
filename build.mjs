@@ -42,19 +42,21 @@ async function copyDependencies(build) {
 	);
 	if (build.js && build.js.length) {
 		for (let j = 0; j < build.js.length; j++) {
-			await fs.copyFile(
-				join(JS_DIR, build.js[j]),
-				join(BUILD_JS_DIR, build.js[j])
-			);
+			const src = join(JS_DIR, build.js[j]);
+			const dest = join(BUILD_JS_DIR, build.js[j]);
+			if (existsSync(src) && !existsSync(dest)) {
+				await fs.copyFile(src, dest);
 		}
+	}
 	}
 
 	if (build.images && build.images.length) {
 		for (let i = 0; i < build.images.length; i++) {
-			await fs.copyFile(
-				join(IMAGE_DIR, build.images[i]),
-				join(BUILD_IMG_DIR, build.images[i])
-			);
+			const src = join(IMAGE_DIR, build.images[i]);
+			const dest = join(BUILD_IMG_DIR, build.images[i]);
+			if (existsSync(src) && !existsSync(dest)) {
+				await fs.copyFile(src, dest);
+			}
 		}
 	}
 
@@ -259,7 +261,7 @@ function setupServer() {
 
 function setupWatcher() {
 	let rebuilding = false;
-	watch(__dirname, async () => {
+	const triggerRebuild = async () => {
 		if (rebuilding) {
 			return;
 		}
@@ -267,7 +269,11 @@ function setupWatcher() {
 		rebuilding = true;
 		await rebuild();
 		rebuilding = false;
-	});
+	};
+	watch(BUILD_CONFIG_FILE, triggerRebuild);
+	watch(TEMPLATE_FILE, triggerRebuild);
+	watch(JS_DIR, triggerRebuild);
+	watch(STYLE_DIR, triggerRebuild);
 }
 
 await rebuild();
