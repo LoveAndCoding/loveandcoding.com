@@ -1,8 +1,9 @@
 import { existsSync, promises as fs, watch } from "fs";
 import { createServer } from "http";
-import { basename, dirname, join, resolve } from "path";
+import { basename, dirname, join, relative, resolve } from "path";
 import { fileURLToPath } from "url";
 
+import esprima from "esprima";
 import finalHandler from "finalhandler";
 import serveStatic from "serve-static";
 
@@ -31,6 +32,68 @@ const HEADER_TABS = "\t".repeat(2);
 const MENU_TABS = "\t".repeat(4);
 const SCRIPT_TABS = "\t".repeat(3);
 
+async function copyFromFolder(fromDir, toDir, list, jsFileIncludeDeps) {
+	if (typeof list === "string" && list !== "") {
+		// Probably just got single item to copy
+		list = [list];
+	} else {
+		list = Array.from(list);
+	}
+
+	if (!list || !list.length) {
+		return;
+	}
+
+	for (let i = 0; i < list.length; i++) {
+		const item = list[i];
+		const src = resolve(fromDir, item);
+		const dest = resolve(toDir, item);
+		if (existsSync(src) && !existsSync(dest)) {
+			if (!existsSync(dirname(dest))) {
+				await fs.mkdir(dirname(dest), { recursive: true });
+			}
+			await fs.copyFile(src, dest);
+
+			if (jsFileIncludeDeps) {
+				try {
+					list.push(...(await parseJSDeps(src)));
+				} catch (err) {
+					console.error(`Unable to parse deps for file ${item}`);
+					console.error(err);
+				}
+			}
+		}
+	}
+}
+
+async function parseJSDeps(jsfile) {
+	const deps = [];
+	esprima.parseModule(
+		await fs.readFile(jsfile, { encoding: "utf-8" }),
+		{},
+		(node, meta) => {
+			if (node.type === "ImportDeclaration") {
+				console.debug(
+					`Found import in JS, adding to scripts`,
+					relative(
+						JS_DIR,
+						resolve(dirname(jsfile), node.source.value)
+					)
+				);
+				deps.push(
+					"./" +
+						relative(
+							JS_DIR,
+							resolve(dirname(jsfile), node.source.value)
+						)
+				);
+			}
+		}
+	);
+
+	return deps;
+}
+
 async function copyDependencies(build) {
 	await fs.copyFile(
 		join(IMAGE_HEARTS_DIR, build.icon),
@@ -40,32 +103,11 @@ async function copyDependencies(build) {
 		join(STYLE_DIR, build.stylesheet),
 		join(BUILD_STYLE_DIR, build.stylesheet)
 	);
-	if (build.js && build.js.length) {
-		for (let j = 0; j < build.js.length; j++) {
-			const src = join(JS_DIR, build.js[j]);
-			const dest = join(BUILD_JS_DIR, build.js[j]);
-			if (existsSync(src) && !existsSync(dest)) {
-				await fs.copyFile(src, dest);
-			}
-		}
-	}
 
-	if (build.images && build.images.length) {
-		for (let i = 0; i < build.images.length; i++) {
-			const src = join(IMAGE_DIR, build.images[i]);
-			const dest = join(BUILD_IMG_DIR, build.images[i]);
-			if (existsSync(src) && !existsSync(dest)) {
-				await fs.copyFile(src, dest);
-			}
-		}
-	}
+	copyFromFolder(JS_DIR, BUILD_JS_DIR, build.js, true);
 
-	if (build.selfPotrait && !existsSync(join(IMAGE_DIR, build.selfPotrait))) {
-		await fs.copyFile(
-			join(IMAGE_DIR, build.selfPotrait),
-			join(BUILD_IMG_DIR, build.selfPotrait)
-		);
-	}
+	copyFromFolder(IMAGE_DIR, BUILD_IMG_DIR, build.images);
+	copyFromFolder(IMAGE_DIR, BUILD_IMG_DIR, build.selfPotrait);
 
 	if (build.npmFonts && build.npmFonts.length) {
 		for (let f = 0; f < build.npmFonts.length; f++) {
@@ -129,13 +171,33 @@ function getIconCSS(builds) {
 }
 
 function getJSScripts(build) {
-	if (!build.js || !build.js.length) {
+	if (
+		!(build.js && build.js.length) &&
+		!(build.npmJs && build.npmJs.length)
+	) {
 		return "";
 	}
 
-	return build.js
-		.map((js) => `<script defer src="/js/${js}"></script>`)
-		.join(`\n${SCRIPT_TABS}`);
+	let scripts = "";
+	if (build.npmJs && build.npmJs.length) {
+		scripts +=
+			build.npmJs
+				.map(
+					(js) =>
+						`<script defer src="/js/${js}" type="module"></script>`
+				)
+				.join(`\n${SCRIPT_TABS}`) + `\n${SCRIPT_TABS}`;
+	}
+
+	if (build.js) {
+		scripts += build.js
+			.map(
+				(js) => `<script defer src="/js/${js}" type="module"></script>`
+			)
+			.join(`\n${SCRIPT_TABS}`);
+	}
+
+	return scripts;
 }
 
 function getMenu(builds, selected) {
@@ -148,9 +210,7 @@ function getMenu(builds, selected) {
 				}"`,
 				`\thref="/${getUrl(bld)}"`,
 				`\tid="love-bar_${bld.slug}"`,
-				">",
-				`\t${bld.label}`,
-				`</a>`,
+				`>\t${bld.label}</a>`,
 			].join(`\n${MENU_TABS}`)
 		)
 		.join(`\n${MENU_TABS}`);
