@@ -87,9 +87,9 @@
 			"stylesheet": "lines.css"
 		},
 		{
-			"js": [],
 			"icon": "Text.svg",
-			"label": "Simplicity",
+			"js": [],
+			"label": "Stories",
 			"slug": "text",
 			"stylesheet": "text.css"
 		}
