@@ -29,8 +29,8 @@ function toggleSwitcher() {
 		// We need to cause some layout thrash to get our animation to work the
 		// way we want it to
 		menu.clientHeight;
-		menu.style.transition = `transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), 
-			margin-bottom 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)`;
+		menu.style.transition = `transform 0.6s cubic-bezier(0.68, -0.6, 0.32, 1.6), 
+			margin-bottom 0.6s cubic-bezier(0.68, -0.6, 0.32, 1.6)`;
 		menu.style.marginBottom = `0px`;
 		menu.style.transform = "translate(0px, 0px)";
 		btns.forEach((btn) => {
