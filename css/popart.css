@@ -1,0 +1,15 @@
+html {
+	background-attachment: fixed, fixed, fixed;
+	background-color: #0b0512;
+	background-image: url("/images/pop.background.svg");
+	color: #cdaed9;
+}
+
+.animated-background {
+	left: 0;
+	pointer-events: none;
+	position: absolute;
+	top: 0;
+	user-select: none;
+	z-index: -1;
+}

@@ -46,15 +46,15 @@
 			"stylesheet": "emoji.css"
 		},
 		{
-			"js": ["switcher.js", "game.js"],
 			"icon": "Pixel.svg",
+			"js": ["switcher.js", "game.js"],
 			"label": "Games",
 			"slug": "games",
 			"stylesheet": "game.css"
 		},
 		{
-			"images": ["minimal.full.heart.svg"],
 			"icon": "Modern.svg",
+			"images": ["minimal.full.heart.svg"],
 			"label": "Minimalism",
 			"root": true,
 			"slug": "minimalism",
@@ -68,6 +68,14 @@
 		},
 		{
 			"icon": "Vector.svg",
+			"images": [
+				"pop.background.png",
+				"pop.background.svg",
+				"pop.heart.model.glb",
+				"scuffed-plastic-red.png",
+				"scuffed-plastic-thickness.png"
+			],
+			"js": ["switcher.js", "pop.js"],
 			"label": "Pop",
 			"slug": "pop",
 			"stylesheet": "popart.css"
