@@ -61,12 +61,6 @@
 			"stylesheet": "minimal.css"
 		},
 		{
-			"icon": "Shade.svg",
-			"label": "Pastels",
-			"slug": "pastels",
-			"stylesheet": "pastel.css"
-		},
-		{
 			"icon": "Vector.svg",
 			"images": [
 				"pop.background.png",
