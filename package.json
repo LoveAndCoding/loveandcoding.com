@@ -18,6 +18,7 @@
 	},
 	"dependencies": {
 		"three": "^0.121.1",
-		"typeface-raleway": "^0.0.75"
+		"typeface-raleway": "^0.0.75",
+		"typeface-work-sans": "^1.1.13"
 	}
 }
