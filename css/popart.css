@@ -9,6 +9,16 @@
 		url("/fonts/work-sans-latin-100italic.woff2") format("woff2"),
 		url("/fonts/work-sans-latin-100italic.woff") format("woff");
 }
+/* Work Sans 300 - latin */
+@font-face {
+	font-family: "Work Sans";
+	font-style: normal;
+	font-display: swap;
+	font-weight: 300;
+	src: local("Work Sans"), local("WorkSans"),
+		url("/fonts/work-sans-latin-300.woff2") format("woff2"),
+		url("/fonts/work-sans-latin-300.woff") format("woff");
+}
 /* Work Sans 400 - latin */
 @font-face {
 	font-family: "Work Sans";
@@ -19,7 +29,7 @@
 		url("/fonts/work-sans-latin-400.woff2") format("woff2"),
 		url("/fonts/work-sans-latin-400.woff") format("woff");
 }
-/* Work Sans 400 - latin */
+/* Work Sans 400 Italic - latin */
 @font-face {
 	font-family: "Work Sans";
 	font-style: normal;
@@ -48,6 +58,9 @@ html {
 	color: #e4cced;
 	font-family: "Work Sans", "Raleway", sans-serif;
 	font-weight: 400;
+	scroll-padding: 5vh;
+	scroll-snap-type: y mandatory;
+	text-shadow: 0px 0px 6px #08030d, 0px 0px 2px #08030d;
 }
 
 .animated-background {
@@ -64,7 +77,6 @@ html {
 
 header {
 	min-height: 80vh;
-	text-shadow: 0px 0px 6px #08030d, 0px 0px 2px #08030d;
 }
 
 .love-bar_button {
@@ -90,16 +102,66 @@ header p {
 	text-align: center;
 }
 
-main {
-	background-color: rgba(11, 5, 18, 0.7);
-	margin: 30px auto;
-	max-width: 1080px;
+section {
+	column-gap: 30px;
+	columns: 2;
+	margin: 5vh auto;
+	max-width: 1460px;
+	min-height: 60vh;
 	padding: 40px;
+	text-align: center;
+}
+
+section h2 {
+	column-span: all;
 }
 
 h2 {
+	font-size: 64px;
 	font-style: italic;
-	font-size: 48px;
 	font-weight: 100;
 	margin-bottom: 15px;
+}
+
+h3 {
+	font-size: 24px;
+	font-style: italic;
+	font-weight: 400;
+	margin-bottom: 15px;
+	margin-top: 0px;
+}
+
+footer {
+	background-color: #0b0512;
+	font-size: 18px;
+	padding: 10vh 30px;
+	text-align: center;
+}
+
+footer p {
+	font-weight: 300;
+	margin-bottom: 15px;
+}
+
+footer a {
+	color: inherit;
+	display: inline-block;
+	margin: 0px 10px;
+	padding: 5px 15px;
+}
+
+@supports (scroll-snap-align: start) {
+	footer,
+	header,
+	section {
+		scroll-snap-align: start;
+	}
+
+	header,
+	section {
+		min-height: 95vh;
+		padding-bottom: 0px;
+		padding-top: 0px;
+		position: relative;
+	}
 }
