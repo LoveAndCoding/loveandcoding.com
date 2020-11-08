@@ -55,7 +55,7 @@ header {
 }
 
 h1 {
-	background-image: url("../images/minimal.full.heart.svg");
+	background-image: url("/images/minimal.full.heart.svg");
 	background-position: top center;
 	background-repeat: no-repeat;
 	background-size: auto 20vh;
@@ -66,9 +66,10 @@ h1 {
 	margin: auto 20px;
 	padding-top: 18vh;
 	text-align: center;
-	text-shadow: 1px 1px 0px rgba(86, 14, 27, 1),
-		2px 2px 0px rgba(86, 14, 27, 0.8), 3px 3px 0px rgba(86, 14, 27, 0.6),
-		4px 4px 0px rgba(86, 14, 27, 0.4), 5px 5px 0px rgba(86, 14, 27, 0.2);
+	text-shadow: 1px 1px 0px rgb(130, 29, 47), 2px 2px 0px rgb(141, 33, 52),
+		3px 3px 0px rgb(152, 37, 57), 4px 4px 0px rgb(163, 41, 62),
+		5px 5px 0px rgb(174, 45, 68), 6px 6px 0px rgb(185, 49, 73),
+		7px 7px 0px rgb(196, 53, 78), 8px 8px 0px rgb(207, 57, 83);
 }
 
 header p {
@@ -78,7 +79,7 @@ header p {
 	font-weight: 300;
 	line-height: 1.5;
 	margin: 30px auto;
-	max-width: 12em;
+	max-width: 7.75em;
 	text-align: center;
 	text-shadow: 2px 2px 2px #560e1b;
 }
