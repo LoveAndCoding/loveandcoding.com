@@ -9,6 +9,7 @@
 	"private": true,
 	"scripts": {
 		"build": "node ./build.mjs",
+		"make-win-symlink": "mklink /d /j \"js/three\" \"node_modules/three\"",
 		"serve": "node ./build.mjs -s"
 	},
 	"devDependencies": {
