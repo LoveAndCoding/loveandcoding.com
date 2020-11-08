@@ -1,3 +1,67 @@
+/**
+ * Build Script
+ *
+ * This is the custom build script built specifically for this site. It uses
+ * the builds.json file to compile the site using different styles and js, but
+ * (roughly) the same HTML for each. It creates as many versions of the site
+ * as is defined in the configuration, and links them all to one another.
+ *
+ * Each style is composed of the following configuration options:
+ *  - `icon` - filename for file in the images/hearts directory
+ *  - `images` - Array of files in the images directory used for this style
+ *  - `js` - Array of files in the js directory used to add interactivity
+ *  - `label` - the user-friendly work to identify this style
+ *  - `npmFonts` - font file configurations to include from NPM
+ *  - `selfPotrait` - the style specific self portrait image
+ *  - `slug` - a slug to use in the url and for identification
+ *  - `stylesheet` - the stylesheet for the style
+ *  - `themeColor` - a theme-color to set in the html for supported browsers
+ *
+ * On top of each style's unique configuration, there is also a set of defaults
+ * that is common among many of the styles that the build will fall back on.
+ *
+ * This build script relies heavily on the pre-defined folder structure and the
+ * goals of this site, and is therefore not likely to be widely applicable to
+ * your code. But feel free to read through it and see how it all works. That
+ * said, this is likely going to be less documented than other systems due to
+ * it's specific and custom nature.
+ *
+ * NOTE ABOUT WHY CUSTOM ======================================================
+ *
+ * By this point, you probably thought to yourself "What?! Why did you roll
+ * your own build script?!? Webpack is right there!" Which, true, it is. But I
+ * chose to go this route for a few reasons.
+ *
+ * First, I'm looking for very specific options for my build configuration that
+ * should be inserted in specific points in the template. This could be done by
+ * loading in the builds.json file and generating the webpack config on demand,
+ * but that can be a pain for some of the template options like the self
+ * portrait which may have specific configuration that differs per style.
+ *
+ * Secondly, I am prioritizing a site that works staticly and without JS. While
+ * it is certainly possible to get Webpack to support this, generally the
+ * default assumption in Webpack is that you are building for a modern browser
+ * site that relies heavily on JS. My site, by contrast, treats JS as additive
+ * to the experience.
+ *
+ * Thirdly, I wanted control over a few additional aspects for some fun easter
+ * eggs or other bits of specific and customized code. For example, all styles
+ * include alternate stylesheets for each of the other styles in their HTML.
+ * The benefit here being that, in some browsers, the user can switch between
+ * styles without navigation. This is a lesser known feature of HTML/browsers,
+ * but that's kind of the point. This is just about fun, so utilizing some of
+ * those more obscure things to do fun experiments is a net positive.
+ *
+ * And finally, it's because this is a personal site showcasing my skills.
+ * Libraries are great and I use a few throughout the site, but libraries
+ * aren't always the right fit for every situation. And having made plenty of
+ * build scripts over the course of my career, I knew I would be able to create
+ * a script like this quickly, and with all the power I needed, without much
+ * overhead.
+ *
+ * So for this particular use case, I felt it made more sense for me to build
+ * rather than "buy".
+ */
 import { existsSync, promises as fs, watch } from "fs";
 import { createServer } from "http";
 import { basename, dirname, join, relative, resolve } from "path";
@@ -7,6 +71,7 @@ import esprima from "esprima";
 import finalHandler from "finalhandler";
 import serveStatic from "serve-static";
 
+// Because we're in an .mjs file, we don't have these automatically
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
@@ -54,6 +119,10 @@ async function copyFromFolder(fromDir, toDir, list, jsFileIncludeDeps) {
 			}
 			await fs.copyFile(src, dest);
 
+			// If we're a JS file, we want to parse out the dependencies so we
+			// can copy those files over too. Note that because we add this to
+			// our current processing list, we will grab dependencies of our
+			// dependencies until we have everything.
 			if (jsFileIncludeDeps) {
 				try {
 					list.push(...(await parseJSDeps(src)));
@@ -228,7 +297,7 @@ function getStylesheets(builds, selected) {
 }
 
 function getThemeColor(build) {
-	return `<meta name="theme-color" content="#${build.themeColor}" />`;
+	return `<meta name="theme-color" content="${build.themeColor}" />`;
 }
 
 async function grabFiles() {
