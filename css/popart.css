@@ -143,6 +143,13 @@ footer p {
 	margin-bottom: 15px;
 }
 
+footer p span {
+	content: url("/images/hearts/Vector.svg");
+	display: inline-block;
+	height: 1em;
+	width: 1em;
+}
+
 footer a {
 	color: inherit;
 	display: inline-block;

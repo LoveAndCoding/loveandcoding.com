@@ -83,3 +83,10 @@ header p {
 	text-align: center;
 	text-shadow: 2px 2px 2px #560e1b;
 }
+
+footer p span {
+	content: url("/images/hearts/Modern.svg");
+	display: inline-block;
+	height: 1.2em;
+	width: 1.2em;
+}
