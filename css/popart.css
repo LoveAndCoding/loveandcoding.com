@@ -158,10 +158,13 @@ footer a {
 }
 
 @supports (scroll-snap-align: start) {
-	footer,
 	header,
 	section {
 		scroll-snap-align: start;
+	}
+
+	footer {
+		scroll-snap-align: end;
 	}
 
 	header,
