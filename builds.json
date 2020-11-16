@@ -65,7 +65,7 @@
 		},
 		{
 			"icon": "Emoji.svg",
-			"label": "Emotion",
+			"label": "Expression",
 			"slug": "emotion",
 			"stylesheet": "emoji.css"
 		},
