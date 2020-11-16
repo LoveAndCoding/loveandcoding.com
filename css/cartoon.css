@@ -1,0 +1,150 @@
+/* Nunito 600 - latin */
+@font-face {
+	font-family: "Nunito";
+	font-style: normal;
+	font-display: swap;
+	font-weight: 600;
+	src: local("Nunito"), url("/fonts/nunito-latin-600.woff2") format("woff2"),
+		url("/fonts/nunito-latin-600.woff") format("woff");
+}
+/* Nunito 600 Italic - latin */
+@font-face {
+	font-family: "Nunito";
+	font-style: normal;
+	font-display: swap;
+	font-weight: 600;
+	font-style: italic;
+	src: local("Nunito Italic"), local("NunitoItalic"),
+		url("/fonts/work-sans-latin-600italic.woff2") format("woff2"),
+		url("/fonts/work-sans-latin-600italic.woff") format("woff");
+}
+/* Nunito 900 - latin */
+@font-face {
+	font-family: "Nunito";
+	font-style: normal;
+	font-display: swap;
+	font-weight: 900;
+	src: local("Nunito"),
+		url("/fonts/nunito-latin-900italic.woff2") format("woff2"),
+		url("/fonts/nunito-latin-900italic.woff") format("woff");
+}
+
+html {
+	background-color: #efeff8;
+	font-family: "Nunito", "Raleway", sans-serif;
+	font-weight: 600;
+	min-height: 100vh;
+}
+
+body {
+	display: grid;
+	grid-template-areas:
+		"header portrait"
+		"tagline portrait"
+		"who portrait"
+		"falling love"
+		"code hacker"
+		"footer footer";
+	grid-template-columns: 50% 50%;
+	grid-template-rows: repeat(2, auto) repeat(3, 1fr) 80px;
+	margin: 60px 20vw 0px;
+}
+
+header,
+main {
+	display: contents;
+}
+
+header::before {
+	content: url("/images/cartoon.portrait.svg");
+	content: url("/images/cartoon.portrait.svg") / "A cartoon portrait of me";
+	display: block;
+	grid-area: portrait;
+	height: auto;
+	max-width: 35vw;
+}
+
+#love-bar {
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	top: 0px;
+}
+
+.love-bar_button {
+	background-color: #c0c0c0;
+	border-radius: 0px 30px 30px 0px;
+	box-shadow: 3px 3px 0px hsla(220, 94%, 59%, 0.3);
+	left: 0px;
+	top: 10px;
+	padding: 12px;
+	position: absolute;
+	transition: top 0.6s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
+
+.love-bar_button::after {
+	content: ">";
+	margin-left: 10px;
+}
+
+.love-bar_button__open {
+	background-color: hsla(220, 94%, 59%, 0.8);
+	top: 200px;
+}
+
+.love-bar_button__open::after {
+	content: none;
+}
+
+.love-bar_button__open::before {
+	content: "<";
+	margin-right: 10px;
+}
+
+h1 {
+	font-size: 96px;
+	font-weight: 900;
+	grid-area: header;
+	line-height: 1;
+	margin-top: 30px;
+	max-width: 6em;
+	text-shadow: 6px 6px 0px hsla(220, 94%, 59%, 0.3);
+}
+
+header p {
+	font-size: 18px;
+	font-style: italic;
+	grid-area: tagline;
+	margin-top: 15px;
+}
+
+section:nth-of-type(1) {
+	grid-area: who;
+}
+
+section:nth-of-type(2) {
+	grid-area: love;
+}
+
+section:nth-of-type(3) {
+	grid-area: code;
+}
+
+h2 {
+	font-size: 36px;
+	font-weight: 900;
+	margin-top: 30px;
+	text-shadow: 3px 3px 0px hsla(220, 94%, 59%, 0.3);
+}
+
+h3 {
+	font-size: 24px;
+	font-weight: 900;
+	margin-top: 30px;
+	text-shadow: 2px 2px 0px hsla(220, 94%, 59%, 0.3);
+}
+
+footer {
+	grid-area: footer;
+	grid-row-end: span 2;
+}
