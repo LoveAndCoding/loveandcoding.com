@@ -37,6 +37,7 @@ html {
 }
 
 body {
+	column-gap: 60px;
 	display: grid;
 	grid-template-areas:
 		"header portrait"
@@ -115,6 +116,7 @@ header p {
 	font-size: 18px;
 	font-style: italic;
 	grid-area: tagline;
+	margin-bottom: 80px;
 	margin-top: 15px;
 }
 
@@ -133,6 +135,7 @@ section:nth-of-type(3) {
 h2 {
 	font-size: 36px;
 	font-weight: 900;
+	margin-bottom: 15px;
 	margin-top: 30px;
 	text-shadow: 3px 3px 0px hsla(220, 94%, 59%, 0.3);
 }
@@ -140,8 +143,16 @@ h2 {
 h3 {
 	font-size: 24px;
 	font-weight: 900;
+	margin-bottom: 15px;
 	margin-top: 30px;
 	text-shadow: 2px 2px 0px hsla(220, 94%, 59%, 0.3);
+}
+
+p {
+	font-size: 18px;
+	line-height: 1.8;
+	max-width: 30em;
+	padding: 0px 1em;
 }
 
 footer {
