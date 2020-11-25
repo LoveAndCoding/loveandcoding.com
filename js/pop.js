@@ -625,3 +625,39 @@ document.documentElement.addEventListener("mousemove", (ev) => {
 // Zhu Li, do the thing
 init();
 animate();
+
+// We have a bit of additional functionality we want for our page, relying on
+// an IntersectionObserver to transition some things properly as folks scroll
+if (IntersectionObserver) {
+	const intrObs = new IntersectionObserver(
+		(entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					// If we're on-screen, transition in...
+					entry.target.classList.add("section__current");
+					entry.target.classList.remove("section__offscreen");
+				} else {
+					// ... otherwise, transition out
+					entry.target.classList.add("section__offscreen");
+					entry.target.classList.remove("section__current");
+				}
+			});
+		},
+		{
+			// Observe relative to the window viewport
+			root: null,
+			// Give us a bit of margin around our observer to catch elements we
+			// currently have drawn off-screen
+			rootMargin: "0px 480px",
+			// Give a bit of a bufffer before we transition in our elements
+			threshold: 0.1,
+		}
+	);
+
+	// Setup grabs all the sections in the main element
+	const sections = Array.from(document.querySelectorAll("main > section"));
+	// ... marks each as something we should observe
+	sections.forEach((el) => intrObs.observe(el));
+	// ... and makes it so we don't have a horizontal scrollbar
+	document.querySelector("main").classList.add("main__hide-offscreen");
+}
