@@ -149,7 +149,7 @@ function initLights() {
 	// First, we want a directional light to shine onto our heart to light it
 	// and show highlights as we move
 	const color = WHITE;
-	const intensity = 1.6;
+	const intensity = 1.8;
 	const dirLight = new Three.DirectionalLight(color, intensity);
 	dirLight.position.z = 0.5;
 	dirLight.position.y = 2;
@@ -159,7 +159,7 @@ function initLights() {
 
 	// Second, we want a Hemisphere light to make sure the ground and sky are
 	// appropriately lit with the right colors and emit a color as needed
-	const hemiLight = new Three.HemisphereLight(DEEP_PURPLE, LIGHT_PURPLE, 0.2);
+	const hemiLight = new Three.HemisphereLight(DEEP_PURPLE, LIGHT_PURPLE, 0.3);
 	scene.add(hemiLight);
 
 	// Finally, we want an ambient light to make our scene just overall a bit
@@ -218,10 +218,8 @@ function initHeartShaders() {
 	// very much in our final result, but they help with the subsurface
 	// scattering, and give it just a bit of depth, even through the bloom
 	const loader = new Three.TextureLoader();
-	const imgTexture = loader.load("/images/scuffed-plastic-red.png");
-	const thicknessTexture = loader.load(
-		"/images/scuffed-plastic-thickness.png"
-	);
+	const imgTexture = loader.load("/images/red-texture.png");
+	const thicknessTexture = loader.load("/images/thickness.png");
 	imgTexture.wrapS = imgTexture.wrapT = Three.RepeatWrapping;
 
 	// We want to use the subsurface scattering shader to give the model a bit
@@ -238,7 +236,7 @@ function initHeartShaders() {
 	uniforms["map"].value = imgTexture;
 
 	// Control how light will penetrate and be reflected from the "subsurface"
-	uniforms["diffuse"].value = new Three.Vector3(0.8, 0.1, 0.3);
+	uniforms["diffuse"].value = new Three.Vector3(1, 0.2, 0.2);
 	uniforms["shininess"].value = 350;
 
 	// Get some "thickness" for our subsurface scattering. This helps add some
@@ -247,9 +245,9 @@ function initHeartShaders() {
 	uniforms["thicknessColor"].value = new Three.Color(DEEP_RED);
 	uniforms["thicknessDistortion"].value = 0.7;
 	uniforms["thicknessAmbient"].value = 0.4;
-	uniforms["thicknessAttenuation"].value = 0.8;
+	uniforms["thicknessAttenuation"].value = 0.7;
 	uniforms["thicknessPower"].value = 4;
-	uniforms["thicknessScale"].value = 10;
+	uniforms["thicknessScale"].value = 40;
 
 	// Put it all together and what does that spell? Material.
 	const material = new Three.ShaderMaterial({
