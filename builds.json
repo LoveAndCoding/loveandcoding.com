@@ -36,7 +36,7 @@
 		{
 			"icon": "Cartoon.svg",
 			"images": ["cartoon.portrait.svg"],
-			"label": "Cartoons",
+			"label": "Animation",
 			"npmFonts": [
 				{
 					"extensions": ["woff", "woff2"],
@@ -64,6 +64,14 @@
 			"stylesheet": "cartoon.css"
 		},
 		{
+			"icon": "Modern.svg",
+			"images": ["minimal.full.heart.svg"],
+			"label": "Consistency",
+			"root": true,
+			"slug": "minimalism",
+			"stylesheet": "minimal.css"
+		},
+		{
 			"icon": "Emoji.svg",
 			"label": "Expression",
 			"slug": "emotion",
@@ -77,14 +85,6 @@
 			"stylesheet": "game.css"
 		},
 		{
-			"icon": "Modern.svg",
-			"images": ["minimal.full.heart.svg"],
-			"label": "Minimalism",
-			"root": true,
-			"slug": "minimalism",
-			"stylesheet": "minimal.css"
-		},
-		{
 			"icon": "Vector.svg",
 			"images": [
 				"pop.background.png",
@@ -94,7 +94,7 @@
 				"scuffed-plastic-thickness.png"
 			],
 			"js": ["switcher.js", "pop.js"],
-			"label": "Pop",
+			"label": "Innovation",
 			"npmFonts": [
 				{
 					"extensions": ["woff", "woff2"],

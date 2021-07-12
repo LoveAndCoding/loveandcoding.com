@@ -1,8 +1,12 @@
+body {
+	font-family: "Raleway", sans-serif;
+}
+
 header {
 	background-color: #d53b55;
 	display: flex;
 	flex-direction: column;
-	min-height: 90vh;
+	min-height: 80vh;
 }
 
 .love-bar_button {
@@ -60,7 +64,6 @@ h1 {
 	background-repeat: no-repeat;
 	background-size: auto 20vh;
 	color: #ffffff;
-	font-family: "Raleway", sans-serif;
 	font-size: 72px;
 	font-weight: 100;
 	margin: auto 20px;
@@ -74,7 +77,6 @@ h1 {
 
 header p {
 	color: #ffffff;
-	font-family: "Raleway", sans-serif;
 	font-size: 18px;
 	font-weight: 300;
 	line-height: 1.5;
@@ -82,6 +84,22 @@ header p {
 	max-width: 7.75em;
 	text-align: center;
 	text-shadow: 2px 2px 2px #560e1b;
+}
+
+section {
+	background-color: hsl(348, 60%, 93%);
+	padding: 10vh;
+}
+
+h2 {
+	font-size: 220%;
+	margin: 30px auto;
+	max-width: 640px;
+}
+
+section p {
+	margin: 30px auto;
+	max-width: 640px;
 }
 
 footer p span {
