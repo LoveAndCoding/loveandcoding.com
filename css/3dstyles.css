@@ -1,0 +1,264 @@
+@import url("./love.css");
+
+/* Work Sans 100 Italic - latin */
+@font-face {
+	font-family: "Work Sans";
+	font-style: normal;
+	font-display: swap;
+	font-weight: 100;
+	font-style: italic;
+	src: local("Work Sans Italic"), local("WorkSans-Italic"),
+		url("../node_modules/typeface-work-sans/files/work-sans-latin-100italic.woff2")
+			format("woff2"),
+		url("../node_modules/typeface-work-sans/files/work-sans-latin-100italic.woff")
+			format("woff");
+}
+/* Work Sans 300 - latin */
+@font-face {
+	font-family: "Work Sans";
+	font-style: normal;
+	font-display: swap;
+	font-weight: 300;
+	src: local("Work Sans"), local("WorkSans"),
+		url("../node_modules/typeface-work-sans/files/work-sans-latin-300.woff2")
+			format("woff2"),
+		url("../node_modules/typeface-work-sans/files/work-sans-latin-300.woff")
+			format("woff");
+}
+/* Work Sans 400 - latin */
+@font-face {
+	font-family: "Work Sans";
+	font-style: normal;
+	font-display: swap;
+	font-weight: 400;
+	src: local("Work Sans"), local("WorkSans"),
+		url("../node_modules/typeface-work-sans/files/work-sans-latin-400.woff2")
+			format("woff2"),
+		url("../node_modules/typeface-work-sans/files/work-sans-latin-400.woff")
+			format("woff");
+}
+/* Work Sans 400 Italic - latin */
+@font-face {
+	font-family: "Work Sans";
+	font-style: normal;
+	font-display: swap;
+	font-weight: 400;
+	font-style: italic;
+	src: local("Work Sans Italic"), local("WorkSans-Italic"),
+		url("../node_modules/typeface-work-sans/files/work-sans-latin-400italic.woff2")
+			format("woff2"),
+		url("../node_modules/typeface-work-sans/files/work-sans-latin-400italic.woff")
+			format("woff");
+}
+/* Work Sans 500 - latin */
+@font-face {
+	font-family: "Work Sans";
+	font-style: normal;
+	font-display: swap;
+	font-weight: 500;
+	src: local("Work Sans"), local("WorkSans"),
+		url("../node_modules/typeface-work-sans/files/work-sans-latin-500.woff2")
+			format("woff2"),
+		url("../node_modules/typeface-work-sans/files/work-sans-latin-500.woff")
+			format("woff");
+}
+
+@keyframes swayleft {
+	from {
+		transform: perspective(900px) rotateY(16deg);
+	}
+	to {
+		transform: perspective(900px) rotateY(3deg);
+	}
+}
+
+@keyframes swayright {
+	from {
+		transform: perspective(900px) rotateY(-16deg);
+	}
+	to {
+		transform: perspective(900px) rotateY(-3deg);
+	}
+}
+
+html {
+	background-color: #9e5b83;
+	color: #301e2d;
+	font-family: "Work Sans", "Raleway", sans-serif;
+	font-weight: 400;
+}
+
+.animated-background {
+	bottom: 0px;
+	left: 0px;
+	overflow: hidden;
+	position: fixed;
+	right: 0px;
+	top: 0px;
+	user-select: none;
+	z-index: -1;
+}
+
+header {
+	display: flex;
+	flex-direction: column;
+	min-height: 80vh;
+	text-shadow: 0px 0px 20px #efefef, 0px 0px 10px #efefef;
+}
+
+#night-toggle-btn {
+	background-color: transparent;
+	background-image: url("../images/Night.and.Day.svg");
+	background-position: right center;
+	background-repeat: no-repeat;
+	background-size: 180px 40px;
+	border: none;
+	border-radius: 20px;
+	box-shadow: 0px 2px 4px rgba(8, 3, 13, 0.6);
+	display: block;
+	height: 40px;
+	position: fixed;
+	right: 15px;
+	top: 15px;
+	transition: background-position 0.4s ease-out;
+	width: 90px;
+	z-index: 1;
+}
+
+#night-toggle-btn:active,
+#night-toggle-btn:hover {
+	background-position: 85% center;
+}
+
+#night-toggle-btn[aria-pressed] {
+	background-position: center left;
+}
+
+#night-toggle-btn[aria-pressed]:active,
+#night-toggle-btn[aria-pressed]:hover {
+	background-position: 15% center;
+}
+
+h1 {
+	font-size: 84px;
+	font-style: italic;
+	font-weight: 400;
+	line-height: 0.9;
+	margin: 20px auto;
+	max-width: 5em;
+	text-align: center;
+}
+
+header p {
+	font-size: 22px;
+	font-style: italic;
+	margin-top: auto;
+	text-align: center;
+}
+
+section {
+	color: #efefef;
+	display: flex;
+	flex-direction: column;
+	margin: 0px auto;
+	min-height: 100vh;
+	text-align: center;
+	text-shadow: 0px 0px 20px #010101, 0px 0px 10px #010101;
+}
+
+section h2 {
+	column-span: all;
+}
+
+h2 {
+	font-size: 64px;
+	font-style: italic;
+	font-weight: 100;
+}
+
+h3 {
+	font-size: 24px;
+	font-style: italic;
+	font-weight: 400;
+	margin-bottom: 0px;
+	margin-top: 0px;
+}
+
+p {
+	margin: 0px auto 15px;
+	max-width: 26em;
+}
+
+#who {
+	align-items: center;
+	justify-content: center;
+	padding-top: 5vh;
+	max-width: 720px;
+}
+
+#love {
+	display: grid;
+	grid-auto-rows: min-content;
+	grid-gap: 0px 5vw;
+	grid-template-columns: 1fr 1fr;
+	margin: 0px auto;
+	max-width: 920px;
+}
+
+.love-header {
+	grid-column: span 2;
+}
+
+.love-section {
+}
+
+footer {
+	background-color: #0b0512;
+	color: #efefef;
+	font-size: 18px;
+	padding: 1vh 30px 5vh;
+	text-align: center;
+}
+
+footer p {
+	font-weight: 300;
+	margin-bottom: 15px;
+}
+
+footer p span {
+	content: url("../images/hearts/Vector.svg");
+	display: inline-block;
+	height: 1em;
+	width: 1em;
+}
+
+footer a {
+	color: inherit;
+	display: inline-block;
+	margin: 0px 10px;
+	padding: 5px 15px;
+}
+
+@supports (scroll-snap-type: y mandatory) {
+	html {
+		scroll-snap-type: y mandatory;
+	}
+
+	header,
+	section {
+		padding-bottom: 0px;
+		scroll-snap-align: start;
+	}
+
+	header {
+		min-height: 100vh;
+	}
+
+	footer {
+		scroll-snap-align: end;
+	}
+
+	.main__hide-offscreen {
+		overflow-x: clip;
+	}
+}
