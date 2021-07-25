@@ -45,7 +45,6 @@ import {
 	MeshBasicMaterial,
 	PlaneGeometry,
 	TextureLoader,
-	Vector3,
 	// Lighting
 	HemisphereLight,
 	PCFSoftShadowMap,
@@ -53,7 +52,6 @@ import {
 	AmbientLight,
 	DirectionalLight,
 	RectAreaLight,
-	MeshPhysicalMaterial,
 } from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader.js";
@@ -101,7 +99,7 @@ const cameraPositions = [
 		},
 		target: {
 			x: 0,
-			y: 2.5,
+			y: 2.1,
 			z: 0,
 		},
 		focalLength: 50,
