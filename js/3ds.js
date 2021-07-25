@@ -276,7 +276,8 @@ const lightsSetup = [
 const lights = new Map();
 let darkMode = false;
 
-// Animation Constants
+// Animation variables
+const reducedMotionMQ = window.matchMedia("(prefers-reduced-motion: reduce)");
 const ANIMATION_TIME_IN_SECONDS = 1;
 
 // Model/Drawing Constants
@@ -880,7 +881,7 @@ function startAnimation(item, to, seconds = ANIMATION_TIME_IN_SECONDS) {
 	}
 
 	// Add the animation to our list of animations
-	const anim = new Animation(item, to, seconds);
+	const anim = new Animation(item, to, reducedMotionMQ.matches ? 0 : seconds);
 	animationMap.set(item, anim);
 
 	// If we're already in the animation loop, we don't need to do anything
@@ -1241,6 +1242,21 @@ window.addEventListener("resize", () => {
 	// Render the updated scene
 	controls.update();
 	composer.render();
+});
+
+/**
+ * Stop animations if prefer-reduced-motion is set
+ */
+reducedMotionMQ.addEventListener("change", () => {
+	if (reducedMotionMQ.matches) {
+		const animations = [...Object.entries(animationMap)];
+		for (const [item, anim] of animations) {
+			anim.stop();
+			anim.applyProperties(1);
+			animationMap.delete(item);
+		}
+		animating = false;
+	}
 });
 
 // Zhu Li, do the thing
