@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8" />
@@ -10,68 +9,32 @@
 			I'm Alexis, and welcome to my personal site. So nice of you to stop
 			by and to check out the code.
 
-			First, I'll start by saying if you'd like to see all of the code,
-			it's available on GitHub at
-			https://github.com/LoveAndCoding/loveandcoding.com
-
-			Secondly, I'll say if you want to find out more about how this was
-			made or information about why in the world I decided to design 8
-			different versions of my personal website, check out the README in
-			the repository linked above. It has all the details.
-
-			And finally, if you'd just like to take a tour through the code,
-			please do! This code and all of the various pecies of the site were
-			created to be explored and learned from.
+			If you'd just like to take a tour through the code, please do! This
+			code and all of the various pecies of the site were created to be
+			explored and learned from.
 
 			If you find an issue with the site, the code, or the documentation,
-			feel free to open an issue in the above repository and let me know.
+			feel free to let me know.
 
 			Thanks again for stopping by!
 			Love,
 			Alexis
 		-->
 
-		<!-- Favicon -->
-		<link href="/images/hearts/Pixel.svg" rel="icon" type="image/svg+xml" />
-
 		<meta name="author" content="Alexis Hushbeck" />
 		<meta
 			name="description"
 			content="Personal site of Alexis Hushbeck; Creative developer, glorious geek, and she's gone a bit mad, but without any power"
 		/>
-		<!--% THEME COLOR %-->
 		<link href="https://loveandcoding.com/" rel="canonical" />
-
-		<!-- CSS Styles -->
-		<link href="/css/love.css" rel="stylesheet" />
-
-		<!-- Different styles -->
-		<!--
-			Pro tip: In FF, you can use the Page Style option in the View menu
-			to switch between these styles. Any style can be applied to any of
-			the versions of the site, though any JS or interactivity is not
-			carried over so it will be a style-only switch. If you want the
-			full experience, you should use the navigation
-		-->
-		<!--% STYLESHEET INSERTS %-->
 	</head>
 	<body>
 		<header>
-			<nav id="love-bar">
-				<span class="love-bar_label">What do you love?</span>
-				<!--% MENU ITEM INSERTS %-->
-			</nav>
-			<button
-				class="love-bar_button love-bar_button__hidden"
-				type="button"
-			>
-				Menu
-			</button>
 			<h1>Love &amp; Coding</h1>
 			<p>Life is better with a lot of both</p>
 		</header>
 		<main>
-			<section>
+			<section id="who">
 				<h2>Who I Am</h2>
 				<p>
 					My name is Alexis, and I use she/her or they/them pronouns.
@@ -81,18 +44,148 @@
 					if just a little.
 				</p>
 			</section>
-			<section>
-				<h2>Love as Input</h2>
-				<h3>Reading</h3>
-				<h3>Theater</h3>
-				<h3>Games</h3>
-				<h3>Learning</h3>
-				<h3>Myself</h3>
+			<section id="love">
+				<div class="love-header">
+					<h2>Love as Input</h2>
+					<p>Here's a few things I love</p>
+				</div>
+
+				<div class="love-section">
+					<h3>Reading</h3>
+					<p>
+						I
+						<a href="https://goodreads.com/loveandreading"
+							>love to read</a
+						>, and usually go through about 50-60 books a year.
+						These days I mostly do audiobooks, a habit I picked up
+						from when I used to have long commutes
+					</p>
+				</div>
+
+				<div class="love-section">
+					<h3>Theater</h3>
+					<p>
+						Going to Broadway shows is one of my favorite ways to
+						spend a night out. I'm especially a sucker for a
+						<em>wicked</em> good musical.
+					</p>
+				</div>
+
+				<div class="love-section">
+					<h3>Games</h3>
+					<p>
+						For a night in, playing games with friends or my partner
+						is just a wonderful way to spend time. And I play games
+						of both the board and video varieties.
+					</p>
+				</div>
+
+				<div class="love-section">
+					<h3>Myself</h3>
+					<p>
+						It took a long time for me to come to terms with myself,
+						but I've finally learned to love myself. So much so,
+						that I wrote myself (and the world)
+						<a href="https://alexis.lgbt/">a letter</a> about it.
+					</p>
+				</div>
 			</section>
-			<section>
+			<section id="coding">
 				<h2>Coding as Output</h2>
-				<h3>For Myself</h3>
-				<h3>For Others</h3>
+
+				<div class="code-section">
+					<h3>For Myself</h3>
+					<p>
+						Sometimes it's most rewarding to work on little projects
+						for myself. Beyond
+						<a
+							href="https://github.com/LoveAndCoding/loveandcoding.com"
+							>this site</a
+						>, here's a few things I am working on now, or have
+						worked on in the past, that I absolutely love.
+					</p>
+					<dl role="associationlist list">
+						<dt role="associationlistkey listitem">
+							<a
+								href="https://github.com/LoveAndCoding/lovely-inbox"
+								>Lovely Inbox</a
+							>
+						</dt>
+						<dd role="associationlistvalue listitem">
+							Desktop email client built on a simple principle:
+							bring out the love.
+						</dd>
+
+						<dt role="associationlistkey listitem">
+							<a href="http://itsablizzard.com"
+								>It's a Blizzard Out There</a
+							>
+						</dt>
+						<dd role="associationlistvalue listitem">
+							Made during a very hot summer, this microsite
+							creates a small snowstorm for you.
+						</dd>
+
+						<dt role="associationlistkey listitem">
+							<a
+								href="https://github.com/LoveAndCoding/weather-icon"
+								>Weather Icon Microservice</a
+							>
+						</dt>
+						<dd role="associationlistvalue listitem">
+							A very small microservice that shows an icon based
+							on the weather at the user's location.
+						</dd>
+					</dl>
+				</div>
+
+				<div class="code-section">
+					<h3>For Others</h3>
+					<p>
+						In addition to code that I do just for me, I also code
+						for a living. Here are just some of the places I've
+						worked, and some of the projects I've worked on.
+					</p>
+					<dl role="associationlist list">
+						<dt role="associationlistkey listitem">
+							<a href="https://khanacademy.org" rel="external"
+								>Khan Academy</a
+							>
+						</dt>
+						<dd role="associationlistvalue listitem">
+							I get to help folks all over the world learn by
+							working on all the different layers of the site and
+							systems, focusing on performance and reliability.
+						</dd>
+
+						<dt role="associationlistkey listitem">
+							<a href="https://blinkux.com" rel="external"
+								>BlinkUX</a
+							>
+						</dt>
+						<dd role="associationlistvalue listitem">
+							I got to design and develop a full service
+							<abbr title="Software as a Service">SaaS</abbr>
+							product for employee growth from the ground up.
+						</dd>
+
+						<dt role="associationlistkey listitem">
+							<a href="https://adobe.com" rel="external">Adobe</a>
+						</dt>
+						<dd role="associationlistvalue listitem">
+							I learned from an <strong>amazing</strong> team of
+							people as I did
+							<abbr title="Quality Engineering">QE</abbr>,
+							<abbr title="Developer Operations">devops</abbr>,
+							and product development work (including
+							<a
+								href="https://www.facebook.com/AdobeMuse/posts/466557103391457"
+								rel="external"
+								>making a fun easter egg</a
+							>).
+						</dd>
+					</dl>
+				</div>
 			</section>
 		</main>
 		<footer>
@@ -102,12 +195,12 @@
 				Hushbeck
 			</p>
 			<nav>
-				<a href="https://github.com/LoveAndCoding">Code</a
-				><a href="https://twitter.com/LoveAndCoding">Tweets</a
-				><a href="https://blog.loveandcoding.com/">Blog</a>
+				<a href="https://github.com/LoveAndCoding">Github</a
+				><a href="https://twitter.com/LoveAndCoding">Twitter</a
+				><a href="https://www.linkedin.com/in/loveandcoding/"
+					>LinkedIn</a
+				>
 			</nav>
 		</footer>
-
-		<!--% SCRIPT INSERTS %-->
 	</body>
 </html>

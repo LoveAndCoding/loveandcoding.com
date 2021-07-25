@@ -6,8 +6,10 @@
 	font-display: swap;
 	font-weight: 100;
 	src: local("Raleway Thin "), local("Raleway-Thin"),
-		url("/fonts/raleway-latin-100.woff2") format("woff2"),
-		url("/fonts/raleway-latin-100.woff") format("woff");
+		url("../node_modules/typeface-raleway/files/raleway-latin-100.woff2")
+			format("woff2"),
+		url("../node_modules/typeface-raleway/files/raleway-latin-100.woff")
+			format("woff");
 }
 
 /* Raleway 100 Italic - latin */
@@ -17,8 +19,10 @@
 	font-display: swap;
 	font-weight: 100;
 	src: local("Raleway Thin italic"), local("Raleway-Thinitalic"),
-		url("/fonts/raleway-latin-100italic.woff2") format("woff2"),
-		url("/fonts/raleway-latin-100italic.woff") format("woff");
+		url("../node_modules/typeface-raleway/files/raleway-latin-100italic.woff2")
+			format("woff2"),
+		url("../node_modules/typeface-raleway/files/raleway-latin-100italic.woff")
+			format("woff");
 }
 
 /* Raleway 200 - latin */
@@ -28,8 +32,10 @@
 	font-display: swap;
 	font-weight: 200;
 	src: local("Raleway Extra Light "), local("Raleway-Extra Light"),
-		url("/fonts/raleway-latin-200.woff2") format("woff2"),
-		url("/fonts/raleway-latin-200.woff") format("woff");
+		url("../node_modules/typeface-raleway/files/raleway-latin-200.woff2")
+			format("woff2"),
+		url("../node_modules/typeface-raleway/files/raleway-latin-200.woff")
+			format("woff");
 }
 
 /* Raleway 200 Italic - latin */
@@ -39,8 +45,10 @@
 	font-display: swap;
 	font-weight: 200;
 	src: local("Raleway Extra Light italic"), local("Raleway-Extra Lightitalic"),
-		url("/fonts/raleway-latin-200italic.woff2") format("woff2"),
-		url("/fonts/raleway-latin-200italic.woff") format("woff");
+		url("../node_modules/typeface-raleway/files/raleway-latin-200italic.woff2")
+			format("woff2"),
+		url("../node_modules/typeface-raleway/files/raleway-latin-200italic.woff")
+			format("woff");
 }
 
 /* Raleway 300 - latin */
@@ -50,8 +58,10 @@
 	font-display: swap;
 	font-weight: 300;
 	src: local("Raleway Light "), local("Raleway-Light"),
-		url("/fonts/raleway-latin-300.woff2") format("woff2"),
-		url("/fonts/raleway-latin-300.woff") format("woff");
+		url("../node_modules/typeface-raleway/files/raleway-latin-300.woff2")
+			format("woff2"),
+		url("../node_modules/typeface-raleway/files/raleway-latin-300.woff")
+			format("woff");
 }
 
 /* Raleway 300 Italic - latin */
@@ -61,8 +71,10 @@
 	font-display: swap;
 	font-weight: 300;
 	src: local("Raleway Light italic"), local("Raleway-Lightitalic"),
-		url("/fonts/raleway-latin-300italic.woff2") format("woff2"),
-		url("/fonts/raleway-latin-300italic.woff") format("woff");
+		url("../node_modules/typeface-raleway/files/raleway-latin-300italic.woff2")
+			format("woff2"),
+		url("../node_modules/typeface-raleway/files/raleway-latin-300italic.woff")
+			format("woff");
 }
 
 /* Raleway 400 - latin */
@@ -72,8 +84,10 @@
 	font-display: swap;
 	font-weight: 400;
 	src: local("Raleway Regular "), local("Raleway-Regular"),
-		url("/fonts/raleway-latin-400.woff2") format("woff2"),
-		url("/fonts/raleway-latin-400.woff") format("woff");
+		url("../node_modules/typeface-raleway/files/raleway-latin-400.woff2")
+			format("woff2"),
+		url("../node_modules/typeface-raleway/files/raleway-latin-400.woff")
+			format("woff");
 }
 
 /* Raleway 400 Italic - latin */
@@ -83,8 +97,10 @@
 	font-display: swap;
 	font-weight: 400;
 	src: local("Raleway Regular italic"), local("Raleway-Regularitalic"),
-		url("/fonts/raleway-latin-400italic.woff2") format("woff2"),
-		url("/fonts/raleway-latin-400italic.woff") format("woff");
+		url("../node_modules/typeface-raleway/files/raleway-latin-400italic.woff2")
+			format("woff2"),
+		url("../node_modules/typeface-raleway/files/raleway-latin-400italic.woff")
+			format("woff");
 }
 
 /* Raleway 500 - latin */
@@ -94,8 +110,10 @@
 	font-display: swap;
 	font-weight: 500;
 	src: local("Raleway Medium "), local("Raleway-Medium"),
-		url("/fonts/raleway-latin-500.woff2") format("woff2"),
-		url("/fonts/raleway-latin-500.woff") format("woff");
+		url("../node_modules/typeface-raleway/files/raleway-latin-500.woff2")
+			format("woff2"),
+		url("../node_modules/typeface-raleway/files/raleway-latin-500.woff")
+			format("woff");
 }
 
 /* Raleway 500 Italic - latin */
@@ -105,8 +123,10 @@
 	font-display: swap;
 	font-weight: 500;
 	src: local("Raleway Medium italic"), local("Raleway-Mediumitalic"),
-		url("/fonts/raleway-latin-500italic.woff2") format("woff2"),
-		url("/fonts/raleway-latin-500italic.woff") format("woff");
+		url("../node_modules/typeface-raleway/files/raleway-latin-500italic.woff2")
+			format("woff2"),
+		url("../node_modules/typeface-raleway/files/raleway-latin-500italic.woff")
+			format("woff");
 }
 
 /* Raleway 600 - latin */
@@ -116,8 +136,10 @@
 	font-display: swap;
 	font-weight: 600;
 	src: local("Raleway SemiBold "), local("Raleway-SemiBold"),
-		url("/fonts/raleway-latin-600.woff2") format("woff2"),
-		url("/fonts/raleway-latin-600.woff") format("woff");
+		url("../node_modules/typeface-raleway/files/raleway-latin-600.woff2")
+			format("woff2"),
+		url("../node_modules/typeface-raleway/files/raleway-latin-600.woff")
+			format("woff");
 }
 
 /* Raleway 600 Italic - latin */
@@ -127,8 +149,10 @@
 	font-display: swap;
 	font-weight: 600;
 	src: local("Raleway SemiBold italic"), local("Raleway-SemiBolditalic"),
-		url("/fonts/raleway-latin-600italic.woff2") format("woff2"),
-		url("/fonts/raleway-latin-600italic.woff") format("woff");
+		url("../node_modules/typeface-raleway/files/raleway-latin-600italic.woff2")
+			format("woff2"),
+		url("../node_modules/typeface-raleway/files/raleway-latin-600italic.woff")
+			format("woff");
 }
 
 /* Raleway 700 - latin */
@@ -138,8 +162,10 @@
 	font-display: swap;
 	font-weight: 700;
 	src: local("Raleway Bold "), local("Raleway-Bold"),
-		url("/fonts/raleway-latin-700.woff2") format("woff2"),
-		url("/fonts/raleway-latin-700.woff") format("woff");
+		url("../node_modules/typeface-raleway/files/raleway-latin-700.woff2")
+			format("woff2"),
+		url("../node_modules/typeface-raleway/files/raleway-latin-700.woff")
+			format("woff");
 }
 
 /* Raleway 700 Italic - latin */
@@ -149,8 +175,10 @@
 	font-display: swap;
 	font-weight: 700;
 	src: local("Raleway Bold italic"), local("Raleway-Bolditalic"),
-		url("/fonts/raleway-latin-700italic.woff2") format("woff2"),
-		url("/fonts/raleway-latin-700italic.woff") format("woff");
+		url("../node_modules/typeface-raleway/files/raleway-latin-700italic.woff2")
+			format("woff2"),
+		url("../node_modules/typeface-raleway/files/raleway-latin-700italic.woff")
+			format("woff");
 }
 
 /* Raleway 800 - latin */
@@ -160,8 +188,10 @@
 	font-display: swap;
 	font-weight: 800;
 	src: local("Raleway ExtraBold "), local("Raleway-ExtraBold"),
-		url("/fonts/raleway-latin-800.woff2") format("woff2"),
-		url("/fonts/raleway-latin-800.woff") format("woff");
+		url("../node_modules/typeface-raleway/files/raleway-latin-800.woff2")
+			format("woff2"),
+		url("../node_modules/typeface-raleway/files/raleway-latin-800.woff")
+			format("woff");
 }
 
 /* Raleway 800 Italic - latin */
@@ -171,8 +201,10 @@
 	font-display: swap;
 	font-weight: 800;
 	src: local("Raleway ExtraBold italic"), local("Raleway-ExtraBolditalic"),
-		url("/fonts/raleway-latin-800italic.woff2") format("woff2"),
-		url("/fonts/raleway-latin-800italic.woff") format("woff");
+		url("../node_modules/typeface-raleway/files/raleway-latin-800italic.woff2")
+			format("woff2"),
+		url("../node_modules/typeface-raleway/files/raleway-latin-800italic.woff")
+			format("woff");
 }
 
 /* Raleway 900 - latin */
@@ -182,8 +214,10 @@
 	font-display: swap;
 	font-weight: 900;
 	src: local("Raleway Black "), local("Raleway-Black"),
-		url("/fonts/raleway-latin-900.woff2") format("woff2"),
-		url("/fonts/raleway-latin-900.woff") format("woff");
+		url("../node_modules/typeface-raleway/files/raleway-latin-900.woff2")
+			format("woff2"),
+		url("../node_modules/typeface-raleway/files/raleway-latin-900.woff")
+			format("woff");
 }
 
 /* Raleway 900 Italic - latin */
@@ -193,8 +227,10 @@
 	font-display: swap;
 	font-weight: 900;
 	src: local("Raleway Black italic"), local("Raleway-Blackitalic"),
-		url("/fonts/raleway-latin-900italic.woff2") format("woff2"),
-		url("/fonts/raleway-latin-900italic.woff") format("woff");
+		url("../node_modules/typeface-raleway/files/raleway-latin-900italic.woff2")
+			format("woff2"),
+		url("../node_modules/typeface-raleway/files/raleway-latin-900italic.woff")
+			format("woff");
 }
 
 html,
@@ -225,69 +261,19 @@ section {
 		transition: none !important;
 	}
 }
-
-#love-bar {
-	align-items: center;
-	background-color: #101010;
-	color: #efefef;
-	display: flex;
-	flex-wrap: wrap;
-	font-family: "Raleway", sans-serif;
-	font-size: 14px;
-	font-weight: 700;
-	justify-content: center;
-	padding-bottom: 15px;
-}
-.love-interactive #love-bar {
-	transition: transform 0.3s cubic-bezier(0.36, 0, 0.66, -0.56);
-}
-
-.love-bar_label {
-	display: block;
-	font-size: 28px;
-	font-weight: 300;
-	flex: 1;
-	flex-basis: 100%;
-	padding: 10px;
-	text-align: center;
-}
-
-.love-bar_link {
-	background-position: center 10px;
-	background-repeat: no-repeat;
-	background-size: 64px 64px;
-	color: #ffffff;
-	display: block;
-	margin: 0px 10px;
-	min-width: 160px;
-	padding: 84px 10px 10px;
-	text-decoration: none;
-	text-align: center;
-}
-.love-bar_link__selected {
-	background-color: #2f2f2f;
-	border-bottom: 4px solid #efefef;
-	padding-bottom: 6px;
-}
-
-.love-bar_button {
-	background: none;
-	border: none;
-	color: inherit;
-	display: block;
-	font-family: "Raleway", sans-serif;
-	padding: 5px;
-	width: 100px;
-}
-
-.love-bar_button__hidden {
-	display: none;
-}
-
-.love-bar_button:active,
-.love-bar_button:focus,
-.love-bar_button:hover,
-.love-bar_button__open {
-	background-color: #101010;
-	color: #efefef;
+/**
+ * Visually hide an element, but leave it available for screen readers
+ * @link https://github.com/h5bp/html5-boilerplate/blob/master/dist/css/main.css
+ * @link http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ */
+.screen-reader {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
 }

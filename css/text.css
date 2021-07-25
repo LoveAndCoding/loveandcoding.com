@@ -5,7 +5,7 @@ html {
 
 body {
 	margin: 30px auto;
-	max-width: 920px;
+	max-width: 42em;
 	font-family: "Raleway", sans-serif;
 }
 
@@ -27,6 +27,7 @@ body {
 	color: blue;
 	display: inline-block;
 	font-weight: normal;
+	margin: 0px 5px;
 	min-width: 0px;
 	padding: 0px;
 	text-decoration: underline;

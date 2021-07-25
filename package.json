@@ -8,17 +8,24 @@
 	"license": "CC-BY-NC-4.0",
 	"private": true,
 	"scripts": {
-		"build": "node ./build.mjs",
-		"make-win-symlink": "mklink /d /j \"js/three\" \"node_modules/three\"",
-		"serve": "node ./build.mjs -s"
+		"build": "rollup --config rollup.config.js",
+		"serve": "rollup --config rollup.config.js -w -s"
 	},
 	"devDependencies": {
-		"esprima": "^4.0.1",
+		"@rollup/plugin-node-resolve": "^13.0.2",
 		"finalhandler": "^1.1.2",
-		"serve-static": "^1.14.1"
+		"prettier": "^2.3.2",
+		"rollup": "^2.53.2",
+		"rollup-plugin-cpy": "^2.0.1",
+		"rollup-plugin-html2": "^3.0.0",
+		"rollup-plugin-serve": "^1.1.0",
+		"rollup-plugin-smart-asset": "^2.1.2",
+		"rollup-plugin-styles": "^3.14.1",
+		"serve-static": "^1.14.1",
+		"terser": "^5.7.1"
 	},
 	"dependencies": {
-		"three": "^0.121.1",
+		"three": "^0.130.1",
 		"typeface-nunito": "^1.1.13",
 		"typeface-raleway": "^0.0.75",
 		"typeface-work-sans": "^1.1.13"
