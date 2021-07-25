@@ -108,35 +108,21 @@ header {
 
 #night-toggle-btn {
 	background-color: transparent;
-	background-image: url("../images/Night.and.Day.svg");
-	background-position: right center;
-	background-repeat: no-repeat;
-	background-size: 180px 40px;
 	border: none;
-	border-radius: 20px;
-	box-shadow: 0px 2px 4px rgba(8, 3, 13, 0.6);
+	cursor: pointer;
 	display: block;
-	height: 40px;
+	height: 120px;
 	position: fixed;
-	right: 15px;
-	top: 15px;
-	transition: background-position 0.4s ease-out;
-	width: 90px;
+	left: 20px;
+	top: 10px;
+	width: 120px;
 	z-index: 1;
 }
 
-#night-toggle-btn:active,
-#night-toggle-btn:hover {
-	background-position: 85% center;
-}
-
-#night-toggle-btn[aria-pressed] {
-	background-position: center left;
-}
-
-#night-toggle-btn[aria-pressed]:active,
-#night-toggle-btn[aria-pressed]:hover {
-	background-position: 15% center;
+#night-toggle-btn svg {
+	display: block;
+	height: 120px;
+	width: 120px;
 }
 
 h1 {
@@ -199,10 +185,10 @@ p {
 #love {
 	display: grid;
 	grid-auto-rows: min-content;
-	grid-gap: 0px 5vw;
+	grid-gap: 3vw 4vw;
 	grid-template-columns: 1fr 1fr;
 	margin: 0px auto;
-	max-width: 920px;
+	max-width: 1080px;
 }
 
 .love-header {
@@ -210,14 +196,57 @@ p {
 }
 
 .love-section {
+	min-height: 25vh;
+}
+
+.love-section a {
+	color: #79e4ff;
+}
+
+#coding {
+	display: grid;
+	grid-auto-rows: min-content;
+	grid-gap: 13vh 15vw;
+	grid-template-columns: 1fr 1fr;
+	margin: 0px auto;
+	max-width: 1240px;
+	padding-top: 50px;
+	position: sticky;
+	top: 0px;
+}
+
+#coding > h2 {
+	color: #0b0512;
+	font-weight: 400;
+	grid-column: span 2;
+	text-shadow: 0px 0px 20px #efefef, 0px 0px 10px #efefef;
+}
+
+.code-section a {
+	color: #79e4ff;
+}
+
+dl {
+	margin-top: 30px;
+	text-align: left;
+}
+
+dt {
+	margin-top: 15px;
 }
 
 footer {
-	background-color: #0b0512;
+	align-items: center;
+	background-image: linear-gradient(to bottom, #1b0b2c, #06030a);
 	color: #efefef;
-	font-size: 18px;
-	padding: 1vh 30px 5vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	font-size: 24px;
+	position: relative;
+	min-height: 100vh;
 	text-align: center;
+	z-index: 2;
 }
 
 footer p {
