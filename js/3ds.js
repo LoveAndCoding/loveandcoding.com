@@ -1086,6 +1086,10 @@ class TimeOfDaySvg {
 		this.defs.appendChild(styles);
 		// Append our bgs, but hide the moon bg
 		this.sunBg = this.sun.bg.cloneNode(true);
+		this.sunBg.setAttribute(
+			"style",
+			"filter: drop-shadow(-4px 8px 8px rgba(0, 0, 0, 0.7))",
+		);
 		this.svg.appendChild(this.sunBg);
 		// Append our sun
 		this.sunMoonEl = this.sun.groups.Sun.cloneNode(true);
