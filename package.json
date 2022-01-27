@@ -25,7 +25,7 @@
 		"terser": "^5.7.1"
 	},
 	"dependencies": {
-		"three": "^0.130.1",
+		"three": "^0.137.0",
 		"typeface-work-sans": "^1.1.13"
 	}
 }
